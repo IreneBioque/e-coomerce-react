@@ -14,7 +14,7 @@ export default function ProductDetail(props) {
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{extraInfo}</Card.Text>
-                <Card.Text>{price} €/ Unidad </Card.Text>
+                <Card.Text>{price.toFixed(2)} €/ Unidad </Card.Text>
                 <Button>Añadir al carrito</Button>
             </Card.Body> 
         </Card>
