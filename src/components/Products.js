@@ -6,7 +6,7 @@ import ProductDetail from "./ProductDetail";
 
 export default function Products(props) {
 
-    const {products:{result, loading, error}} = props;
+    const {products:{result, loading, error}, addProductCart} = props;
     return (
         <Container>
             <Row>
@@ -16,7 +16,7 @@ export default function Products(props) {
                 ): (
                     result.map((product, i)=> {
                         return(
-                            <ProductDetail key={i} product={product}/>
+                            <ProductDetail key={i} product={product} addProductCart={addProductCart}/>
                            
                         )
                        

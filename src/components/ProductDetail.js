@@ -4,7 +4,7 @@ import '../styles/Components/ProductDetail.scss'
 import {BASE_PATH} from '../utils/constants'
 
 export default function ProductDetail(props) {
-    const {product :{image, name, extraInfo, price}} = props;
+    const {product :{image, name, extraInfo, price, id}, addProductCart} = props;
 
     return (
         <Col xs={3} className="product" >
@@ -15,7 +15,7 @@ export default function ProductDetail(props) {
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{extraInfo}</Card.Text>
                 <Card.Text>{price.toFixed(2)} €/ Unidad </Card.Text>
-                <Button>Añadir al carrito</Button>
+                <Button onClick={() => addProductCart(id, name)} >Añadir al carrito</Button>
             </Card.Body> 
         </Card>
         </Col>
