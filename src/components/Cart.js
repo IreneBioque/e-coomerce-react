@@ -75,6 +75,7 @@ export default function Cart(props) {
             decreaseQuantity={decreaseQuantity} />
            )
        })}
+       <CartContentFooter/>
        </div>
    
  
@@ -150,26 +151,17 @@ function CartContentProducts(props) {
     );
   };
 
-  function Footer (props){
-    const { product, quantity} = props;
+  function CartContentFooter (props){
+    const { cardTotalPrice} = props;
    
     return (
-      <div className="cart-content__product">
-        <img src={product.image} alt={product.name} />
-        <div className="cart-content__product-info">
-          <div>
-            <h3>{product.name.substr(0, 25)}...</h3>
-            <p>{product.price.toFixed(2)} € / ud.</p>
-          </div>
-          <div>
-            <p>En carro: {quantity} ud.</p>
-            <div>
-              {/* No se puede hacer destructuring en funciones?*/}
-            <button onClick={() => props.increaseQuantity(product.id)}>+</button>
-            <button onClick={() => props.decreaseQuantity(product.id)}>-</button>
-            </div>
-          </div>
+      <div className="cart-content__footer">
+        <div>
+          <p>Total aproximado: </p>
+          <p>{cardTotalPrice.toFixed(2)} €</p>
+          <p>92€</p>
         </div>
+        <Button>Tramitar pedido</Button>
       </div>
     );
   };
