@@ -12,6 +12,23 @@ function App() {
   const products = useFetch(urlApi, null);
   const [productsCart, setProductsCart] = useState([]);
 
+  useEffect(() => {
+    getProductsCart();
+  }, [])
+// recuperar el carro cada vez q se recargue el navegador del ls
+  const getProductsCart = () => {
+    const idsProducts = localStorage.getItem(STORAGE_PRODUCTS_CART);
+
+    if(idsProducts){
+      // separar por comas
+      const idsProductsSplit = idsProducts.split(',');
+      setProductsCart(idsProductsSplit)
+    } else {
+      setProductsCart([]);
+    }
+
+  }
+
   const addProductCart = (id, name) => {
     const idsProducts = productsCart;
     idsProducts.push(id);
