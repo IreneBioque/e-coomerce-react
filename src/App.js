@@ -1,15 +1,17 @@
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import './App.css';
+import './styles/App.scss'
+import TopMenu from './components/TopMenu';
+import useFetch from './hooks/useFetch';
+import {urlApi} from './utils/constants'
 
 function App() {
-  const openToast = () => {
-    toast('Wow so easy')
-  }
+  const result = useFetch(urlApi);
+  console.log(result)
+
   return (
     <div className="App">
-      <button onClick={openToast} >Click</button>
-      <ToastContainer />
+      <TopMenu/>
     </div>
   );
 }
