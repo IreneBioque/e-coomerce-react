@@ -68,7 +68,7 @@
   
     .cart-content__products {
       height: calc(100vh - 76px - 119px);
-      overflow: scroll;
+      overflow: auto;
     }
     .cart-content__product {
       display: flex;

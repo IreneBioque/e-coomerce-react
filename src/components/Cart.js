@@ -16,13 +16,44 @@ export default function Cart(props) {
   
     const [cartOPen, setCartOpen] = useState(false);
     const [singleProductsCart, setSingleProductsCart]= useState([]);
+    const [cartTotalPrice, setCartTotalPrice ] = useState(0);
     // si está abierto el ancho es 400 y si no 0
     const widthCartContent = cartOPen ? 400 : 0;
     useEffect(() => {
+      // para que devuelva los productos únicos que hay en el carrito
         const allProductsId = removeArrayDuplicates(productsCart);
         setSingleProductsCart(allProductsId)
   // variables que cuando se actualicen este effect se vuelva a ejecutar
     },[productsCart])
+
+    useEffect(() => {
+      const productData = []
+      let totalPrice = 0;
+      // para que devuelva los productos únicos que hay en el carrito
+      const allProductsId = removeArrayDuplicates(productsCart)
+      allProductsId.forEach(productId => {
+      const quantity = countDuplicatesItemArray(productId, productsCart);
+       // objeto que tiene el id del producto y la cantidad del producto
+      const productValue = {
+        id: productId,
+        quantity: quantity
+      };
+      productData.push(productValue)
+      });
+      // si loading ha terminado y result tiene contenido
+      if (!products.loading && products.result) {
+        products.result.forEach(product => {
+          productData.forEach(item =>{
+            if(product.id == item.id){
+              const totalValue = product.price * item.quantity;
+              totalPrice = totalPrice + totalValue
+            }
+          })
+        })
+      }
+      setCartTotalPrice(totalPrice);
+      // cuando estas variables se actualicen, el useEffect vuelve a pasar
+  },[productsCart, products])
 
     const openCart = () => {
         setCartOpen(true);
@@ -53,6 +84,7 @@ export default function Cart(props) {
       localStorage.setItem(STORAGE_PRODUCTS_CART, result);
       getProductsCart();
     };
+  
     return (
         <>
        <Button variant="link" className="cart" >
@@ -75,7 +107,7 @@ export default function Cart(props) {
             decreaseQuantity={decreaseQuantity} />
            )
        })}
-       <CartContentFooter/>
+       <CartContentFooter cartTotalPrice={cartTotalPrice}/>
        </div>
    
  
@@ -152,14 +184,13 @@ function CartContentProducts(props) {
   };
 
   function CartContentFooter (props){
-    const { cardTotalPrice} = props;
+    const { cartTotalPrice} = props;
    
     return (
       <div className="cart-content__footer">
         <div>
           <p>Total aproximado: </p>
-          <p>{cardTotalPrice.toFixed(2)} €</p>
-          <p>92€</p>
+         <p>{cartTotalPrice.toFixed(2)} €</p>
         </div>
         <Button>Tramitar pedido</Button>
       </div>
