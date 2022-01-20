@@ -7,13 +7,14 @@ import Cart from './Cart';
 import '../styles/Components/TopMenu.scss'
 
 
-function TopMenu() {
+function TopMenu(props) {
+  const {productsCart, getProductsCart} = props;
 
     return (
       <Navbar bg="dark" variant='dark' className='top-menu'>
           <Container>
           <BrandNav/>
-          <Cart />
+          <Cart productsCart={productsCart} getProductsCart={getProductsCart} />
           {/* <MenuNav /> */}
           </Container>
       </Navbar>
