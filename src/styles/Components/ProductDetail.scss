@@ -5,7 +5,10 @@
         margin: 15px;
 
         &-title{
-            height: 50px;
+            @media (max-width: 500px) {
+                height: 50px;
+            }
+          
         }
         .btn {
             width: 100%;
