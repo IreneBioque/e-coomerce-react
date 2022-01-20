@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import Loading from './Loading'
+import ProductDetail from "./ProductDetail";
+
 
 export default function Products(props) {
 
@@ -14,7 +16,7 @@ export default function Products(props) {
                 ): (
                     result.map((product, i)=> {
                         return(
-                            <p>{product.name}</p>
+                            <ProductDetail key={i} product={product}/>
                            
                         )
                        
