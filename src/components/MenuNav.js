@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import BrandNav from './BrandNav';
 
 import '../styles/Components/TopMenu.scss'

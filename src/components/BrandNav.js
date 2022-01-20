@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Navbar} from 'react-bootstrap';
 // importamos imagen como componente
 import {ReactComponent as Logo} from '../images/logo.svg'
 
@@ -11,7 +11,7 @@ function BrandNav() {
     return (
       <Navbar.Brand>
           <Logo/>
-          <h2>La casa de los helados</h2>
+          <h2>Gelateria</h2>
       </Navbar.Brand>
     );
   }
