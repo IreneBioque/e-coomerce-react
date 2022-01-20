@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
+import Loading from './Loading'
 
 export default function Products(props) {
 
@@ -9,7 +10,7 @@ export default function Products(props) {
             <Row>
                 {/* Si loading es true o result no tiene nada */}
                 {loading || !result ?(
-                    'Cargando'
+                    <Loading />
                 ): (
                     result.map((product, i)=> {
                         return(
