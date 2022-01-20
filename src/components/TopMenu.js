@@ -1,7 +1,8 @@
 import React from 'react';
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Container, Navbar } from 'react-bootstrap';
 import BrandNav from './BrandNav';
-import MenuNav from './MenuNav';
+import Cart from './Cart';
+// import MenuNav from './MenuNav';
 
 import '../styles/Components/TopMenu.scss'
 
@@ -12,6 +13,7 @@ function TopMenu() {
       <Navbar bg="dark" variant='dark' className='top-menu'>
           <Container>
           <BrandNav/>
+          <Cart />
           {/* <MenuNav /> */}
           </Container>
       </Navbar>
