@@ -8,13 +8,13 @@ import '../styles/Components/TopMenu.scss'
 
 
 function TopMenu(props) {
-  const {productsCart, getProductsCart} = props;
+  const {productsCart, getProductsCart, products} = props;
 
     return (
       <Navbar bg="dark" variant='dark' className='top-menu'>
           <Container>
           <BrandNav/>
-          <Cart productsCart={productsCart} getProductsCart={getProductsCart} />
+          <Cart productsCart={productsCart} getProductsCart={getProductsCart} products={products} />
           {/* <MenuNav /> */}
           </Container>
       </Navbar>

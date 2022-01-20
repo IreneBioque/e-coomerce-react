@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     getProductsCart();
-  }, [])
+  }, []);
 // recuperar el carro cada vez q se recargue el navegador del ls
   const getProductsCart = () => {
     const idsProducts = localStorage.getItem(STORAGE_PRODUCTS_CART);
@@ -27,7 +27,7 @@ function App() {
       setProductsCart([]);
     }
 
-  }
+  };
 
   const addProductCart = (id, name) => {
     const idsProducts = productsCart;
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <TopMenu productsCart={productsCart} getProductsCart={getProductsCart} />
+      <TopMenu productsCart={productsCart} getProductsCart={getProductsCart} products={products} />
       <Products products={products} addProductCart={addProductCart} />
       <ToastContainer 
       position='bottom-left'
