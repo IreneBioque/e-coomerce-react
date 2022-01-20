@@ -18,13 +18,25 @@ function App() {
     setProductsCart(idsProducts);
     // guardar estado en ls. Le pasamos el nombre que tendrá y el valor
     localStorage.setItem(STORAGE_PRODUCTS_CART, productsCart )
-    console.log('Producto añadido')
+    toast.success(`${name} añadido al carrito correctamente`);
   }
 
   return (
     <div className="App">
       <TopMenu/>
       <Products products={products} addProductCart={addProductCart} />
+      <ToastContainer 
+      position='bottom-left'
+      autoClose={5000}
+      hideProgressBar
+      newestOnTop
+      closeOnClick
+      rtl={false}
+      pauseOnVisibilityChange={false}
+      draggable
+      pauseOnHover={false}
+      />
+        
     </div>
   );
 }
