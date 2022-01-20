@@ -11,7 +11,7 @@ function BrandNav() {
     return (
       <Navbar.Brand>
           <Logo/>
-          <h2>Gelateria</h2>
+          <h2>Gelatos Viyuela</h2>
       </Navbar.Brand>
     );
   }
